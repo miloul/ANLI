@@ -1,0 +1,120 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="{% static 'css/default-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}"/>
+</head>
+<body>
+    <!-- header (nav-bar and title) -->
+    <h1>회원가입</h1>
+    <!-- basic info -->
+    <form method = "POST" enctype="multipart/form-data" action="{% url 'register' %}">
+        {% csrf_token %}
+        <h2>기본정보</h2>
+        <table>
+            <tr>
+                <td class="table-left">아이디</td>
+                <td><input size="15" type="text" name="username"> (영어소문자/숫자,4~16자)</td>
+            </tr>
+            <tr>
+                <td class="table-left">비밀번호</td>
+                <td><input size="15" type="password" name="password" style="width:200px;"> (영어소문자/숫자,4~16자)</td>
+            </tr>
+            <tr>
+                <td class="table-left">비밀번호 확인</td>
+                <td><input size="15" type="password" name="re-password" style="width:200px;"> (영어소문자/숫자,4~16자)</td>
+            </tr>
+            <tr>
+                <td class="table-left">이름</td>
+                <td><input type="text" name="nickname"></td>
+            </tr>
+            <tr>
+                <td class="table-left">휴대전화</td>
+                <td><input type="text" name="ph"></td>
+            </tr>
+            <tr>
+                <td class="table-left">메일 주소</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+        </table>
+        <!-- additional info -->
+        <h2>추가정보</h2>
+        <table>
+            <tr>
+                <td class="table-left">계좌정보<br>(환불용)</td>
+                <td>
+                    <p>
+                        <span>예금주</span><input type="text" name="account_name">
+                        <p><span>은행명</span><input type="text" name="account_bank"></p>
+                        <span>계좌번호</span><input type="text" name="account">
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <!-- agree -->
+        <h2>전체동의</h3>
+        <table>
+            <tr  class="agree-check">
+                <td><h4 style="margin-left:10px">[필수] 이용약관 동의</h4></td>
+            </tr>
+            <tr  class="agree-check">
+                <td style="text-align:center;">
+                    <textarea style="width: 90%; height: 100px;" readonly>
+제1조 (목적)
+    본 약관은 정보통신산업진흥원이 제공하는 홈페이지(이하 "당사이트"라 함)가 제공하는 이용조건, 절차, 이용자와 당 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정하는 것을 목적으로 합니다.
+                    </textarea>
+                </td>
+            </tr>
+            <tr  class="agree-check">
+                <td>
+                    <p>
+                        <span>이용약관에 동의하십니까?</span>
+                        <label><input type="radio" name="agreement1" value="agree">동의함</label>
+                        <label><input type="radio" name="agreement1" value="disagree">동의하지 않음</label>
+                    </p>
+                </td>
+            </tr>
+            <tr class="agree-check">
+                <td><h4 style="margin-left:10px">[필수] 개인정보 수집 및 이용 동의</h4></td>
+            </tr>
+            <tr class="agree-check">
+                <td style="text-align:center;">
+                    <textarea style="width: 90%; height: 100px;" readonly>
+이용자가 제공한 모든 정보는 다음의 목적을 위해 활용하며, 하기 목적 이외의 용도로는 사용되지 않습니다.
+        ① 개인정보 수집 항목 및 수집·이용 목적
+            가) 수집 항목 (필수항목)
+            나) 수집 및 이용 목적
+        ② 개인정보 보유 및 이용기간
+            - 수집·이용 동의일로부터 개인정보의 수집·이용목적을 달성할 때까지
+                    </textarea>
+                </td>
+            </tr>
+            <tr class="agree-check">
+                <td>
+                    <p>
+                        <span>이용약관에 동의하십니까?</span>
+                        <label><input type="radio" name="agreement2" value="agree">동의함</label>
+                        <label><input type="radio" name="agreement2" value="disagree">동의하지 않음</label>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <button id="btntoregister" type="submit">회원가입</button> 
+    </form>
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
+            <p>
+                <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114  &ensp;<span class="bolder">이메일 문의</span> : anli@likelion.org</div>
+                <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
+            </p>
+            <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
+        </div>
+    </footer>
+</body>
+</html>
