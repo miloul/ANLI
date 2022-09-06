@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+</head>
+<body background="{% static 'img/main.jpg' %}">
+    <!-- Nav-bar -->
+    <div class="nav inner">
+     <!-- Logo -->
+     <div class="logo">
+         <a href="{% url 'home' %}" class="brand-name">A N L I</a>
+         <a href="{% url 'home' %}">
+             <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
+         </a>
+     </div>
+ 
+     <!-- Navbar links -->
+     <div class="navlink">
+         <ul class="gnb">
+             <form class="d-flex" action="." method="get">
+                 <input class="search-input" type="search" placeholder="지역" name="location">
+                 <input class="search-input" type="search" placeholder="유형" name="select_home">
+                 <button class="search-btn" type="submit">Search</button>
+             </form>
+             <li><a href="{% url 'home' %}" class="nav-name">Home</a></li>
+             <li><a href="{% url 'new' %}" class="nav-name">Hosting</a></li>
+             <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+             <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-img"
+                         alt=""></a></li>
+             <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-img"
+                         alt=""></a></li>
+             <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-img"
+                         alt=""></a></li>
+         </ul>
+     </div>
+ </div>
+   <!-- login -->
+   <div class="container">
+        <div class="upper-login">
+            <button type="button" class="Xbtn">X</button>
+            <div class="login-font">로그인</div>
+            <hr class="line">
+        </div>
+        {% if error %}
+        {{ error }}
+        {% endif %}
+        <form method="POST" action="{% url 'register' %}">  
+            {% csrf_token %}
+            <div class="login-container">   
+                <h2>안리에 오신 것을 환영합니다!</h2>
+                <div>아이디 :  </div>
+                <input type="text" placeholder="아이디" name="username" required>  
+                <div>비밀번호 :</div>   
+                <input type="password" placeholder="비밀번호" name="password" required>
+                <div>비밀번호 확인 :</div>   
+                <input type="password" placeholder="비밀번호" name="re-password" required>    
+            </div>   
+        <!-- agree -->
+        <h2>전체동의</h3>
+        <table>
+            <tr  class="agree-check">
+                <td><h4 style="margin-left:10px">[필수] 이용약관 동의</h4></td>
+            </tr>
+            <tr  class="agree-check">
+                <td style="text-align:center;">
+                    <textarea style="width: 90%; height: 100px;" readonly>
+제1조 (목적)
+    본 약관은 정보통신산업진흥원이 제공하는 홈페이지(이하 "당사이트"라 함)가 제공하는 이용조건, 절차, 이용자와 당 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정하는 것을 목적으로 합니다.
+                    </textarea>
+                </td>
+            </tr>
+            <tr  class="agree-check">
+                <td>
+                    <p>
+                        <span>이용약관에 동의하십니까?</span>
+                        <label><input type="radio" name="agreement1" value="agree">동의함</label>
+                        <label><input type="radio" name="agreement1" value="disagree">동의하지 않음</label>
+                    </p>
+                </td>
+            </tr>
+            <tr class="agree-check">
+                <td><h4 style="margin-left:10px">[필수] 개인정보 수집 및 이용 동의</h4></td>
+            </tr>
+            <tr class="agree-check">
+                <td style="text-align:center;">
+                    <textarea style="width: 90%; height: 100px;" readonly>
+이용자가 제공한 모든 정보는 다음의 목적을 위해 활용하며, 하기 목적 이외의 용도로는 사용되지 않습니다.
+        ① 개인정보 수집 항목 및 수집·이용 목적
+            가) 수집 항목 (필수항목)
+            나) 수집 및 이용 목적
+        ② 개인정보 보유 및 이용기간
+            - 수집·이용 동의일로부터 개인정보의 수집·이용목적을 달성할 때까지
+                    </textarea>
+                </td>
+            </tr>
+            <tr class="agree-check">
+                <td>
+                    <p>
+                        <span>이용약관에 동의하십니까?</span>
+                        <label><input type="radio" name="agreement2" value="agree">동의함</label>
+                        <label><input type="radio" name="agreement2" value="disagree">동의하지 않음</label>
+                    </p>
+                </td>
+            </tr>
+        </table>
+            <button id="btntoregister" type="submit">회원가입</button> 
+        </form>
+    <div class="container">
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishList</title>
+    <link rel="stylesheet" href="{% static 'css/default-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/wishlist.css' %}"/>
+</head>
+<body>
+    <!-- header(nav-bar) -->
+    <div id="main">
+        <div class="navB inner">
+          <!-- Logo -->
+            <div class="logo">
+              <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
+              <a href="{% url 'home' %}">
+                <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
+            </a>
+            </div>
+    
+            <!-- Navbar links -->
+            <div class="navlink">
+                <ul class="gnb">
+                    <form class="d-flex" action="." method="get">
+                        <input class="search-inputB" type="search" placeholder="지역" name="location">
+                        <input class="search-inputB" type="search" placeholder="유형" name="kind">
+                        <button class="search-btnB" type="submit">Search</button>
+                    </form>
+                  <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                  <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
+                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                  <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
+                  <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
+                  <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                </ul>
+            </div>
+    </div>
+    <!-- wish list -->
+    <h4 class="reserv-conf">위시리스트</h4>
+    <div class="room">
+        <div class="room-box">
+            <img src="{% static 'img/room1.jpg' %}" class="img-room" alt="">
+            <h4 class="room-name">서울 강남구</h4>
+            <h4 class="room-term">9월 1일 ~ 12월 1일</h4>
+            <h4 class="room-tax">520,000원 /달</h4>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
+            <p>
+                <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114  &ensp;<span class="bolder">이메일 문의</span> : anli@likelion.org</div>
+                <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
+            </p>
+            <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
+        </div>
+    </footer>
+</html>

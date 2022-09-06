@@ -1,0 +1,50 @@
+수정필요
+회원가입 css
+검색기능
+hosting js 연결
+로그인/회원가입 기능 - 되는데 닉넴 적는칸 만들면 좋을듯
+
+모든 명령어는 git bash에서 하기
+
+매번 시작할때 
+source myvenv/Scripts/activate
+입력하여 가상환경 실행하기
+
+서버 실행방법 : python manage.py runserver
+
+model.py 등 DB구조 변했을때 
+python manage.py makemigrations
+python manage.py migrate
+실행하기
+
+
+모든 html 파일은 각 app의 template 폴더 내에 저장
+static 폴더에 css, js, img 저장
+
+html에서 static 폴터 파일 끌어올때는 html파일 맨 위에
+{% load static %}
+적은 후 링크할때는
+<link rel="stylesheet" href="{% static 'css/파일명' %}"/>
+으로 적기
+
+form tag 사용하는 경우
+{% csrf_token %}
+적고 method=POST 지정해두기 (자세한건 user/templates/register.html 참고)
+
+
+총 프로젝트 구조
+anliproject
+    anliproject
+    anli
+        home
+        hosting
+        mypage
+        room
+        search
+        search-result
+        wishlist
+    user
+        register
+        login
+    chat
+        message

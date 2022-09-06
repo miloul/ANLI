@@ -1,0 +1,106 @@
+:root{
+    --linecolor: rgb(240, 240, 240);
+}
+
+#body-padding {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+/* 프로필박스 */
+.profile{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+/* 아기사자 이미지 */
+.lion-img{
+    width: 120px;
+    height: 105px;
+}
+
+/* 계정 이름 */
+.profile-name{
+    color:black;
+    font-size: 24px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 계정 가입일 */
+.profile-date{
+    color:rgb(138, 138, 138);
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 23px;
+}
+
+/* 계정 관리 박스 */
+.account-box{
+    margin-top: 80px;
+}
+
+/* 각 박스 이름 */
+.box-name{
+    color:black;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 버튼 정렬 */
+.button-flex{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+/* 버튼 디자인 */
+.design-btn{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: white;
+    border: 2px solid var(--linecolor);
+    padding: 20px;
+    margin-right: 20px;
+}
+
+/* 버튼 이미지 디자인 */
+.imgs-btn{
+    width: 60px;
+}
+
+/* 각 버튼 이름 */
+.bold-btn{
+    color:black;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* button {
+    box-sizing: border-box;
+
+    width: 200px;
+    height: 150px;
+
+    border: 1px solid #D3D3D3;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+} */
