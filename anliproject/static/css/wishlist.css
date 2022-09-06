@@ -1,0 +1,62 @@
+.reserv-conf{
+    color:black;
+    font-size: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+}
+
+
+.room{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+    margin-left: 180px;
+}
+
+.d-inline-flex{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.room-box{
+    display: inline-block;
+    margin-bottom: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img-room{
+    width: 400px;
+    height: 250px;
+}
+
+.room-name{
+    margin-top: 10px;
+    margin-bottom: 0;
+    color:black;
+    font-size: 22px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+.room-term{
+    margin-top: 5px;
+    margin-bottom: 0;
+    color:#949494;
+    font-size: 17px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+}
+
+.room-tax{
+    margin-top: 14px;
+    margin-bottom: 0;
+    color:black;
+    font-size: 23px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
