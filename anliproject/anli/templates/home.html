@@ -67,22 +67,16 @@
         <div class="room">
             <div class="d-inline-flex">
                 {% for room in rooms %}
-                <div class="room-box">
-                    <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
-                    <h4 class="room-name">{{ room.title }}</h4>
-                    <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
-                    <h4 class="room-tax">{{ room.price }}</h4>
-                </div>
+                <a href="{% url 'detail' room.id %}">
+                    <div class="room-box">
+                        <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
+                        <h4 class="room-name">{{ room.title }}</h4>
+                        <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
+                        <h4 class="room-tax">{{ room.price }}</h4>
+                    </div>
+                </a>
                 {% endfor %}
             </div>
-
-
-            <!-- <div class="room-box">
-                <img src="{% static 'img/room1.jpg' %}" class="img-room" alt="">
-                <h4 class="room-name">서울 강남구</h4>
-                <h4 class="room-term">9월 1일 ~ 12월 1일</h4>
-                <h4 class="room-tax">520,000원 /달</h4>
-            </div> -->
         </div>
     </div>
     <!-- footer -->
