@@ -48,6 +48,20 @@
         </div>
     </div>
 
+    <div class="room">
+        <div class="d-inline-flex">
+            {% for room in rooms %}
+            <a href="{% url 'detail' room.id %}">
+                <div class="room-box">
+                    <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
+                    <h4 class="room-name">{{ room.title }}</h4>
+                    <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
+                    <h4 class="room-tax">{{ room.price }}</h4>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
     <!-- footer -->
     <footer>
         <div class="footer-container">

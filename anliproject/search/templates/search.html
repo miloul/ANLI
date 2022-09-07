@@ -16,10 +16,10 @@
 <body>
     <div id="main">
         <div class="navB inner">
-          <!-- Logo -->
+        <!-- Logo -->
             <div class="logo">
-              <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
-              <a href="{% url 'home' %}">
+            <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
+            <a href="{% url 'home' %}">
                 <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
             </a>
             </div>
@@ -32,24 +32,24 @@
                         <input class="search-inputB" type="search" placeholder="유형" name="kind">
                         <button class="search-btnB" type="submit">Search</button>
                     </form>
-                  <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
-                  <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
-                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
-                  <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
-                  <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
-                  <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
+                <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
+                <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
+                <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
                 </ul>
             </div>
     </div>
-    <h3 style=" margin-left:150px;">검색결과 - 검색어 : <b>"{{ query_1 }}", "{{ query_2 }}"</b></h3><br>
+
+    <h3 style=" margin-left:150px;">검색결과 <br>지역 : "{{ query_1 }}", 방 유형:"{{ query_2 }}"</b></h3><br>
     <div class="room" style="margin-top: 30px; margin-left:150px;">
         
         <div class="d-inline-flex" sytle="display: inline-block;
         margin-left: 50px;">
             {% for result in results %}
             <div class="room-box">
-                <a href="{% url 'detail' result.id %}">
-                <img src="{{ result.image.url }}" class="img-room" alt="사진">
+                <a href="{% url 'detail' result.id %}"><img src="{{ result.image.url }}" class="img-room" alt="사진"></a><br>
                     <h4 class="room-name" style="margin-top: 10px;
                     margin-bottom: 0;
                     color:black;
@@ -68,7 +68,8 @@
                     font-size: 23px;
                     font-family: 'Noto Sans KR', sans-serif;
                     font-weight: 500;"> {{ result.price }}</h4>
-                    </a>
+                    <a href="{% url 'detail' result.id %}" style="text-decoration: none;
+                    color: #377d71;">more</a>
             </div>
             {% endfor %}
         </div>
