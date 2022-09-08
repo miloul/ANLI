@@ -29,7 +29,7 @@
             <!-- Navbar links -->
             <div class="navlink">
                 <ul class="gnb">
-                    <form class="d-flex" action="." method="get">
+                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
                         <input class="search-input" type="search" placeholder="지역" name="location">
                         <input class="search-input" type="search" placeholder="유형" name="select_home">
                         <button class="search-btn" type="submit">Search</button>
@@ -88,6 +88,14 @@
                 </a>
                 {% endfor %}
             </div>
+
+
+            <!-- <div class="room-box">
+                <img src="{% static 'img/room1.jpg' %}" class="img-room" alt="">
+                <h4 class="room-name">서울 강남구</h4>
+                <h4 class="room-term">9월 1일 ~ 12월 1일</h4>
+                <h4 class="room-tax">520,000원 /달</h4>
+            </div> -->
         </div>
         <script>
             function changeHeart() {
