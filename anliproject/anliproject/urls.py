@@ -33,7 +33,7 @@ urlpatterns = [
     path('payment/<str:id>', views.payment, name="payment"),
     path('wishlist/', views.wishlist, name="wishlist"),
     path('message/', views.message, name="message"),
-    path('search/', views.search, name="search")
+    path('search/', include('search.urls')),
     #path('heart/<str:id>', views.heart, name="heart")
     #127.0.0.1:8000/user/ 이하의 url들은 user폴더의 urls파일에서 관리한다. 라는 설정
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

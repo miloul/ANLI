@@ -69,17 +69,7 @@
                         <a href="{% url 'detail' room.id %}">
                             <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
                         </a>
-                        {% if room.heart == 0 %}
-                        <form action="{% url 'heart' room.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" onclick="AddWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
-                        </form>
-                        {% else %}
-                        <form action="{% url 'heart' room.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" onclick="DeleteWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
-                        </form>
-                        {% endif %}
+                        <button type="submit" onclick="AddWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
                         <a href="{% url 'detail' room.id %}">
                         <h4 class="room-name">{{ room.title }}</h4>
                         <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
