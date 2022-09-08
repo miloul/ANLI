@@ -31,9 +31,20 @@ def create(request):
     new_room.option=request.POST['option']
     new_room.description=request.POST['description']
     new_room.registered_dttm=timezone.now()
+    new_room.heart = 0
     new_room.save()
     return redirect('detail', new_room.id)
 
+# def heart(request, id):
+#     edit_heart = Room.objects.get(id=id)
+#     if edit_heart.heart == 1:
+#         edit_heart.heart = 0
+#     else:
+#         edit_heart.heart = 1
+#     edit_heart.save()
+#     rooms = Room.objects.all()
+#     return render(request, 'home.html', {'rooms': rooms})
+    
 #------
 #템플릿들 연결
 

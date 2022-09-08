@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
 </head>
-
 <body>
     <div class="main">
         <div class="nav inner">
@@ -59,7 +58,6 @@
         </div>
     </div>
 
-
     <!-- Recommendations -->
     <div class="recommand">
         <h3 class="rcm-name">Recommendation</h3>
@@ -67,9 +65,22 @@
         <div class="room">
             <div class="d-inline-flex">
                 {% for room in rooms %}
-                <a href="{% url 'detail' room.id %}">
                     <div class="room-box">
-                        <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
+                        <a href="{% url 'detail' room.id %}">
+                            <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
+                        </a>
+                        {% if room.heart == 0 %}
+                        <form action="{% url 'heart' room.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" onclick="AddWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'heart' room.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" onclick="DeleteWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
+                        </form>
+                        {% endif %}
+                        <a href="{% url 'detail' room.id %}">
                         <h4 class="room-name">{{ room.title }}</h4>
                         <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
                         <h4 class="room-tax">{{ room.price }}</h4>
@@ -78,6 +89,20 @@
                 {% endfor %}
             </div>
         </div>
+        <script>
+            function changeHeart() {
+                img = document.getElementById("img1");
+                let name=img.src.split('/')
+                console.log(name[5]);
+                console.log(name);
+                if (name[5] =="full-heart.png"){
+                    img.src = "{% static 'img/bin-heart.png' %}"
+                }
+                else {
+                   img.src = "{% static 'img/full-heart.png' %}";
+                }
+            }
+        </script>
     </div>
     <!-- footer -->
     <footer>
@@ -92,5 +117,5 @@
         </div>
     </footer>
 </body>
-
+<script src="/static/js/wishlist.js" type="text/javascript"></script>
 </html>
