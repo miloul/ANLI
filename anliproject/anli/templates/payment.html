@@ -53,10 +53,10 @@
             <!-- Payment -->
             <div class="pymbox inner">
                 <div class="room-pm">
-                    <img src="{{ blog.image.url }}" class="room-pm-img" alt="">
+                    <img src="{{ room.image.url }}" class="room-pm-img" alt="">
                     <div class="room-data">
-                        <h2 class="room-pm-name">{{ blog.title }}</h2>
-                        <h4 class="room-pm-loc">{{ blog.location }}</h4>
+                        <h2 class="room-pm-name">{{ room.title }}</h2>
+                        <h4 class="room-pm-loc">{{ room.location }}</h4>
                     </div>
                 </div>
                 <div class="reserv">
@@ -79,7 +79,7 @@
                     <div class="bottom-line-rsv">
                         <div class="reserv-month down">
                             <h4 class="reserv-ltr margin-top">월세</h4>
-                            <h4 class="reserv-way">{{ blog.price }} <span class="reserv-price-month">/달</span></h4>
+                            <h4 class="reserv-way">{{ room.price }} <span class="reserv-price-month">/달</span></h4>
                         </div>
                         <div class="reserv-pay down">
                             <h4 class="reserv-ltr margin-top">결제 방식</h4>
@@ -97,9 +97,9 @@
             <div class="last-box">
                 <h4 class="reserv-expln">희망하시는 거주 개월 수는 <span id="month" class="bold">0</span>개월입니다.
                     금일 무통장 입금으로 결제하실 경우, <br> <span id="result_month" class="bold">0</span>월부터 매달
-                    <span id="result_day" class="bold">0</span>일에 해당 계좌로 <span class="bold">{{ blog.price }}</span>을 입금하셔야합니다.
+                    <span id="result_day" class="bold">0</span>일에 해당 계좌로 <span class="bold">{{room.price }}</span>을 입금하셔야합니다.
                 </h4>
-                <input type="button" class="pay-btn" value="결제하기" onclick="location.href='{% url 'deposit' blog.id%}'">
+                <input type="button" class="pay-btn" value="결제하기" onclick="location.href='{% url 'deposit' room.id%}'">
             </div>
         </div>
     </div>
@@ -117,5 +117,4 @@
     </footer>
 </body>
 <script defer src="{% static 'js/payment.js' %}"></script>
-
 </html>
