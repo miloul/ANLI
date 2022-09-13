@@ -37,29 +37,47 @@
                 </ul>
             </div>
     </div>
-    <h2>위시리스트</h2>
+    <h1 style="margin-left:200px;margin-top:90px;margin-bottom:50px;">위시리스트</h1>
     <!-- wish list -->
     <div class="room">
         <div class="d-inline-flex">
             {% for room in rooms %}
-                {% if room.heart == 1 %}
-            <a href="{% url 'detail' room.id %}">
                 <div class="room-box">
-                    <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
+                    <a href="{% url 'detail' room.id %}">
+                        <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
+                    </a>
+                    {% if room.heart == 0 %}
+                    <form action="{% url 'heart' room.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" onclick="AddWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
+                    </form>
+                    {% else %}
+                    <form action="{% url 'heart' room.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" onclick="DeleteWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
+                    </form>
+                    {% endif %}
+                    <a href="{% url 'detail' room.id %}">
                     <h4 class="room-name">{{ room.title }}</h4>
                     <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
                     <h4 class="room-tax">{{ room.price }}</h4>
                 </div>
             </a>
-                {% endif %}
             {% endfor %}
         </div>
     </div>
     <script>
-        img = document.getElementById("img1");
-        for (const i=0; i<1;i++) {
-            if (room[i]==1)
-                img.src = "{% static 'img/full-heart.png' %}";
+        function changeHeart() {
+            img = document.getElementById("img1");
+            let name=img.src.split('/')
+            console.log(name[5]);
+            console.log(name);
+            if (name[5] =="full-heart.png"){
+                img.src = "{% static 'img/bin-heart.png' %}"
+            }
+            else {
+               img.src = "{% static 'img/full-heart.png' %}";
+            }
         }
     </script>
     <!-- footer -->

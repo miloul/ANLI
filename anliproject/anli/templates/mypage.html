@@ -29,7 +29,7 @@
             <!-- Navbar links -->
             <div class="navlink">
                 <ul class="gnb">
-                    <form class="d-flex" action="." method="get">
+                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
                         <input class="search-inputB" type="search" placeholder="지역" name="location">
                         <input class="search-inputB" type="search" placeholder="유형" name="kind">
                         <button class="search-btnB" type="submit">Search</button>

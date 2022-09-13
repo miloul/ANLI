@@ -11,11 +11,10 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/default-style.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/room.css' %}"/>
 </head>
 <body>
-    <div id="main">
         <div class="navB inner">
           <!-- Logo -->
             <div class="logo">
@@ -28,14 +27,14 @@
             <!-- Navbar links -->
             <div class="navlink">
                 <ul class="gnb">
-                    <form class="d-flex" action="." method="get">
+                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
                         <input class="search-inputB" type="search" placeholder="지역" name="location">
                         <input class="search-inputB" type="search" placeholder="유형" name="kind">
                         <button class="search-btnB" type="submit">Search</button>
                     </form>
                   <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
                   <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
-                  <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
                   <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
                   <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
                   <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
@@ -68,15 +67,15 @@
         <div class="media-room-option" id="inline">
             <div class="room-flex-row">
                 <img class="info-image" src="{% static 'img/home.png' %}"> 
-                <h4>{{ room.select_home }}</h4>
+                <h4 class="info-msg">{{ room.select_home }}</h4>
             </div>
             <div class="room-flex-row">
                 <img class="info-image" src="{% static 'img/door.png' %}">
-                <h4>{{ room.room }}</h4>
+                <h4 class="info-msg">{{ room.room }}</h4>
             </div>
             <div class="room-flex-row">
                 <img class="info-image" src="{% static 'img/cal.png' %}">
-                <h4>{{ room.smaller_period }}</h4>
+                <h4 class="info-msg">{{ room.smaller_period }}</h4>
             </div>
             <button class="message-btn">메시지보내기</button>
         </div>
