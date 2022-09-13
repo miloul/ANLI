@@ -16,8 +16,8 @@ class Room(models.Model): #장고에서 제공하는 models.Model를 상속받�
     basic_info = models.CharField(max_length=64,verbose_name = '기본정보')
     option = models.CharField(max_length=64,verbose_name = '옵션')
     description = models.CharField(max_length=500,verbose_name = '설명')
-    heart = 0
     
+    heart = models.IntegerField(verbose_name='위시')
     registered_dttm = models.DateTimeField(auto_now_add=True, verbose_name='등록시간') 
     #저장되는 시점의 시간을 자동으로 삽입해준다.
 
@@ -30,3 +30,4 @@ class Room(models.Model): #장고에서 제공하는 models.Model를 상속받�
     
     def summary(self):
         return self.body[:50] + '...'
+    

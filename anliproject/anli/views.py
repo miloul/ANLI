@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Room
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 def home(request):
     rooms = Room.objects.all()
@@ -27,23 +29,23 @@ def create(request):
     new_room.bathroom=request.POST['bathroom']
     new_room.room=request.POST['room']
     new_room.bed=request.POST['bed']
-    new_room.bed=request.POST['basic_info']
+    new_room.basic_info=request.POST['basic_info']
     new_room.option=request.POST['option']
     new_room.description=request.POST['description']
     new_room.registered_dttm=timezone.now()
-    new_room.heart = 0
+    new_room.heart=0
     new_room.save()
     return redirect('detail', new_room.id)
-
-# def heart(request, id):
-#     edit_heart = Room.objects.get(id=id)
-#     if edit_heart.heart == 1:
-#         edit_heart.heart = 0
-#     else:
-#         edit_heart.heart = 1
-#     edit_heart.save()
-#     rooms = Room.objects.all()
-#     return render(request, 'home.html', {'rooms': rooms})
+    
+def heart(request, id):
+    edit_heart = Room.objects.get(id=id)
+    if edit_heart.heart == 1:
+        edit_heart.heart = 0
+    else:
+        edit_heart.heart = 1
+    edit_heart.save()
+    rooms = Room.objects.all()
+    return render(request, 'home.html', {'rooms': rooms})
     
 #------
 #템플릿들 연결
@@ -53,6 +55,7 @@ def deposit(request, id):
     return render(request, 'deposit.html', {'room': room})
 
 def mypage(request):
+    #user = get_object_or_404(User, pk=id)
     return render(request, 'mypage.html')
 
 def payment(request, id):
@@ -60,7 +63,8 @@ def payment(request, id):
     return render(request, 'payment.html', {'room': room})
 
 def wishlist(request):
-    return render(request, 'wishlist.html')
+    rooms = Room.objects.all()
+    return render(request, 'wishlist.html', {'rooms': rooms})
 
 def message(request):
     return render(request, 'message.html')

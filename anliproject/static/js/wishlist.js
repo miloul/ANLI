@@ -1,10 +1,9 @@
 let room=[0, ];
 
 function AddWishlist(id) {
-    room[id] = 1;
+    if (room[id]==1)
+        room[id] = 0;
+    else 
+        room[id]=1;
     console.log(room[id]);
-}
-
-function DeleteWishlist(id) {
-    room[id] = 0;
 }

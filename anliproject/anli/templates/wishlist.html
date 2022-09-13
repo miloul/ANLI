@@ -37,10 +37,12 @@
                 </ul>
             </div>
     </div>
+    <h2>위시리스트</h2>
     <!-- wish list -->
     <div class="room">
         <div class="d-inline-flex">
             {% for room in rooms %}
+                {% if room.heart == 1 %}
             <a href="{% url 'detail' room.id %}">
                 <div class="room-box">
                     <img src="{{ room.image.url }}" class="img-room" alt="사진"><br>
@@ -49,9 +51,17 @@
                     <h4 class="room-tax">{{ room.price }}</h4>
                 </div>
             </a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
+    <script>
+        img = document.getElementById("img1");
+        for (const i=0; i<1;i++) {
+            if (room[i]==1)
+                img.src = "{% static 'img/full-heart.png' %}";
+        }
+    </script>
     <!-- footer -->
     <footer>
         <div class="footer-container">
