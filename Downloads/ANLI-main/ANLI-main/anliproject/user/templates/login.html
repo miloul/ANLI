@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Ubuntu:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
+</head>
+
+<body>
+    <div class="main">
+        <!-- Nav-bar -->
+        <div class="nav inner">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="{% url 'home' %}" class="brand-name">A N L I</a>
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
+                </a>
+            </div>
+
+            <!-- Navbar links -->
+            <div class="navlink">
+                <ul class="gnb">
+                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
+                        <input class="search-input" type="search" placeholder="지역" name="location">
+                        <input class="search-input" type="search" placeholder="유형" name="select_home">
+                        <button class="search-btn" type="submit">Search</button>
+                    </form>
+                    <li><a href="{% url 'home' %}" class="nav-name">Home</a></li>
+                    <li><a href="{% url 'new' %}" class="nav-name">Hosting</a></li>
+                    <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                    <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-img"
+                                alt=""></a></li>
+                    <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-img"
+                                alt=""></a></li>
+                    <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-img"
+                                alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- login -->
+        <div class="container">
+            <div class="upper-login">
+                <button type="button" class="Xbtn">X</button>
+                <div class="login-font">로그인</div>
+                <hr class="line">
+            </div>
+            {% if error %}
+            {{ error }}
+            {% endif %}
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="login-container">
+                    <h2 class="login-main-font">Sign in to <span class="login-main-bold">A N L I</span></h2>
+                    <div class="login-input-display">
+                        <div class="login-input-font">아이디</div>
+                        <div class="login-input-box"><input type="text" placeholder="아이디" name="username" required>
+                        </div>
+                    </div>
+                    <div class="login-input-display">
+                        <div class="login-input-font">비밀번호</div>
+                        <div class="login-input-box"><input type="password" placeholder="비밀번호" name="password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="default-btn">로그인</button>
+                </div>
+            </form>
+            <div class="footer-login">
+                <div class="footer-display">
+                    <div class="font-h4">아직 회원가입을 하지 않으셨나요?</div>
+                    <a class="footer-a" href="{% url 'register' %}">회원가입하러 가기</a>
+                </div>
+                <div class="footer-display">
+                    <div class="font-h4">비밀번호를 잊으셨나요?</div>
+                    <a class="footer-a" href="#">비밀번호 찾기</a>
+                </div>
+            </div>
+            <hr class="line">
+            <div class="fontsize12px">로그인함으로써 안리의 <span>이용 약관</span> 및 <span>개인정보 처리방침</span>에 동의합니다.</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

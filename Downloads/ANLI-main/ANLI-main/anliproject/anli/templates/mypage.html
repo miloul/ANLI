@@ -1,0 +1,89 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Ubuntu:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>Mypage</title>
+    <link rel="stylesheet" href="{% static 'css/default-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}"/>  
+</head>
+<body>
+    <!-- nav bar -->
+    <div id="main">
+        <div class="navB inner">
+          <!-- Logo -->
+            <div class="logo">
+              <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
+              <a href="{% url 'home' %}">
+                <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
+            </a>
+            </div>
+    
+            <!-- Navbar links -->
+            <div class="navlink">
+                <ul class="gnb">
+                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
+                        <input class="search-inputB" type="search" placeholder="지역" name="location">
+                        <input class="search-inputB" type="search" placeholder="유형" name="kind">
+                        <button class="search-btnB" type="submit">Search</button>
+                    </form>
+                  <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                  <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
+                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                  <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
+                  <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
+                  <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                </ul>
+            </div>
+    </div>
+    <div id="body-padding">
+        <!-- profile -->
+        <div class="profile">
+            <img src="{% static 'img/lion_profile.png' %}" class="lion-img" alt="">
+            <div class="profile-font">
+                <h4 class="profile-name">아기사자</h4>
+                <h4 class="profile-date">가입</h4>
+            </div>
+        </div>
+
+        <!-- account management -->
+        <div class="account-box">
+            <h4 class="box-name">계정 관리</h4>
+            <div class="button-flex">
+                <button class="design-btn"><img src="{% static 'img/personal.png' %}" alt="" class="imgs-btn"><span class="bold-btn">개인 정보</span><p></p>개인 정보 및 연락처를 알려주세요.</button>
+                <button class="design-btn"><img src="{% static 'img/deposit-pf.png' %}" alt="" class="imgs-btn"><span class="bold-btn">계좌 및 결제</span><p></p>계좌 관리 및 결제 검토하기</button>
+                <button class="design-btn"><img src="{% static 'img/ring-pf.png' %}" alt="" class="imgs-btn"><span class="bold-btn">알림</span><p></p>알림 환경설정을 해주세요.</button>
+                <button class="design-btn"><img src="{% static 'img/badperson-fp.png' %}" alt="" class="imgs-btn"><span class="bold-btn">신고하기</span><p></p>불량한 이용자를 신고해주세요.</button>
+            </div>
+        </div>
+        <hr style="margin-top:50px; border:0; height:1px; background: #FBC5C5;">
+        <!-- hosting -->
+        <div class="account-box">
+            <h4 class="box-name">호스팅</h4>
+            <div class="button-flex">
+                <a href="{% url 'new' %}"><button class="design-btn"><img src="{% static 'img/personal.png' %}" alt="" class="imgs-btn"><span class="bold-btn">집 등록하기</span><p></p>호스팅할 집을 등록해주세요.</button></a>
+                <button class="design-btn"><img src="{% static 'img/personal.png' %}" alt="" class="imgs-btn"><span class="bold-btn">호스트 초대하기</span><p></p>다른 호스트를 초대해주세요.</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
+            <p>
+                <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114  &ensp;<span class="bolder">이메일 문의</span> : anli@likelion.org</div>
+                <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
+            </p>
+            <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
+        </div>
+    </footer>
+</body>
+</html>
