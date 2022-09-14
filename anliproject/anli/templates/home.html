@@ -72,12 +72,12 @@
                         {% if room.heart == 0 %}
                         <form action="{% url 'heart' room.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" onclick="AddWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
+                            <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
                         </form>
                         {% else %}
                         <form action="{% url 'heart' room.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" onclick="DeleteWishlist({{room.id}}); changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
+                            <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
                         </form>
                         {% endif %}
                         <a href="{% url 'detail' room.id %}">

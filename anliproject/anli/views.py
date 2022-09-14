@@ -46,6 +46,16 @@ def heart(request, id):
     edit_heart.save()
     rooms = Room.objects.all()
     return render(request, 'home.html', {'rooms': rooms})
+
+def wishheart(request, id):
+    edit_heart = Room.objects.get(id=id)
+    if edit_heart.heart == 1:
+        edit_heart.heart = 0
+    else:
+        edit_heart.heart = 1
+    edit_heart.save()
+    rooms = Room.objects.all()
+    return render(request, 'wishlist.html', {'rooms': rooms})
     
 #------
 #템플릿들 연결
