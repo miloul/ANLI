@@ -1,0 +1,87 @@
+:root{
+    --linecolor: rgb(240, 240, 240);
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 수직 정렬 */
+.flex_column{
+    display: flex;
+    flex-direction: column;
+}
+
+/* 전체 박스 */
+.deposit-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+/* 무통장 입금 계좌 안내 */
+.font-main-bold{
+    color:black;
+    font-size: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-top: 0;
+    margin-bottom: 100px;
+    /* border-bottom: 2px solid var(--linecolor);
+    padding-bottom: 10px;
+    padding-left: 200px;
+    padding-right: 200px; */
+}
+
+/* 계좌, 예금주 분홍 박스 */
+.deposit-box-expln{
+    background-color: #fbc5c554;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 3px solid var(--linecolor);
+}
+
+/* 계좌, 예금주 */
+.deposit-cont{
+    color:black;
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 15px;
+}
+
+/* 금일 안으로 입금 */
+.deposit-font-bottom{
+    color:black;
+    font-size: 22px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+/* 입금액 강조 */
+.deposit-font-bottom-bold{
+    color:black;
+    font-size: 24px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* 결제 메일 발송 확인 */
+.deposit-font-small{
+    color:#377D71;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}

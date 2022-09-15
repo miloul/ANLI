@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <div class="main">
         <!-- Navbar -->
         <div class="navB inner">
             <!-- Logo -->
@@ -60,7 +59,7 @@
 
         <div class="all-flex">
             <!-- Payment -->
-            <div class="pymbox inner">
+            <div class="pymbox">
                 <div class="room-pm">
                     <img src="{{ room.image.url }}" class="room-pm-img" alt="">
                     <div class="room-data">
@@ -111,7 +110,6 @@
                 <input type="button" class="pay-btn" value="결제하기" onclick="location.href='{% url 'deposit' room.id%}'">
             </div>
         </div>
-    </div>
     <!-- footer -->
     <footer>
         <div class="footer-container">
