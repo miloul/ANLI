@@ -61,7 +61,7 @@
                 {% for result in results %}
                 <div class="room-box">
                     <a href="{% url 'detail' result.id %}">
-                        <img src="{{ result.image.url }}" class="img-room" alt="사진"><br></a>
+                        <img src="{{ result.image.url }}" class="img-room" alt="사진" style="border-radius:10px;"><br></a>
                     </a>
                     {% if result.heart == 0 %}
                     <form action="{% url 'heart' result.id %}" method="post">

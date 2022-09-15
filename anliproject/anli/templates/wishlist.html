@@ -68,7 +68,7 @@
             <div class="room-box">
                 {% if room.heart == 1 %}
                 <a href="{% url 'detail' room.id %}">
-                    <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
+                    <img src="{{ room.image.url }}" class="img-room" alt="사진" style="border-radius:10px;"><br></a>
                 </a>
                 <form action="{% url 'wishheart' room.id %}" method="post">
                     {% csrf_token %}
