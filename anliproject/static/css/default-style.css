@@ -63,13 +63,14 @@ a:hover{
 .brand-name{
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
+    letter-spacing: 15px;
 }
 
 .logo-img{
     display: flex;
-    width: 80px;
+    width: 70px;
     margin-bottom: 0px;
 }
 
@@ -96,63 +97,9 @@ a:hover{
 }
 
 .nav-img{
-    width: 47px;
+    width: 43px;
     filter: invert(100%) sepia(3%) saturate(356%) hue-rotate(240deg) brightness(114%) contrast(100%);
 }
-
-/* Background Image
-.main-img{
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: brightness(50%);
-} */
-
-/* room */
-/* .room{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 100px;
-}
-
-.room-box{
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.img-room{
-    width: 400px;
-    height: 250px;
-}
-
-.room-name{
-    margin-top: 10px;
-    margin-bottom: 0;
-    color:black;
-    font-size: 22px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
-}
-
-.room-term{
-    margin-top: 5px;
-    margin-bottom: 0;
-    color:#949494;
-    font-size: 17px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 300;
-}
-
-.room-tax{
-    margin-top: 14px;
-    margin-bottom: 0;
-    color:black;
-    font-size: 23px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 500;
-} */
-
 
 /* footer */
 footer {
@@ -200,10 +147,11 @@ body {
 }
 
 .brand-nameB{
-    color: black;
     text-decoration: none;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 700;
+    letter-spacing: 15px;
+    color: black;
 }
 
 .search-inputB {
@@ -236,11 +184,11 @@ body {
 .nav-nameB{
     color: black;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .nav-imgB{
-    width: 50px;
+    width: 43px;
 }
 
 
