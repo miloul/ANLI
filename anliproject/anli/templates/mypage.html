@@ -20,7 +20,7 @@
         <div class="navB inner">
           <!-- Logo -->
             <div class="logo">
-              <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
+              <a href="{% url 'home' %}" class="brand-nameB">ANLI</a>
               <a href="{% url 'home' %}">
                 <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
             </a>
@@ -35,11 +35,23 @@
                         <button class="search-btnB" type="submit">Search</button>
                     </form>
                   <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                  {% if user.is_authenticated %}
                   <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
-                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                  {% else %}
+                  <li><a href="{% url 'login' %}" class="nav-nameB">Hosting</a></li>
+                  {% endif%}
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url 'logout' %}" class="nav-nameB">Logout</a>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                    {% endif %}
                   <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
                   <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
+                  {% if user.is_authenticated %}
                   <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                  {% else %}
+                  <li><a href="{% url 'login' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                  {% endif%}
                 </ul>
             </div>
     </div>
