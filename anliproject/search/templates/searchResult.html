@@ -45,6 +45,7 @@
     <h3 style=" margin-left:150px;">검색결과 <br>지역 : "{{ query_1 }}", 방 유형:"{{ query_2 }}"</b></h3><br>
     <div class="room">
         <div class="d-inline-flex">
+<<<<<<< HEAD:anliproject/search/templates/searchResult.html
             {% for result in results %}
                 <div class="room-box">
                     <a href="{% url 'detail' result.id %}">
@@ -68,6 +69,9 @@
                 </div>
             </a>
             {% endfor %}
+=======
+            
+>>>>>>> ee6f9f1072ceff1d080787935c2b0ad02d0054ff:anliproject/search/templates/search.html
         </div>
     </div>
     <script>

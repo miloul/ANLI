@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.utils import timezone
 
 def register(request):
     if request.method == "POST":
         if request.POST['password'] == request.POST['re-password']:
             user = User.objects.create_user(
                 username = request.POST['username'],
-                password = request.POST['password']
+                password = request.POST['password'],
+                date_joined = timezone.now()
             )
         auth.login(request, user)
         return redirect('/')
@@ -27,4 +29,5 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
+    print("logout complete")
     return redirect('/')

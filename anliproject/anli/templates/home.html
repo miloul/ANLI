@@ -20,7 +20,7 @@
         <div class="nav inner">
             <!-- Logo -->
             <div class="logo">
-                <a href="{% url 'home' %}" class="brand-name">A N L I</a>
+                <a href="{% url 'home' %}" class="brand-name">ANLI</a>
                 <a href="{% url 'home' %}">
                     <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
                 </a>
@@ -35,14 +35,28 @@
                         <button class="search-btn" type="submit">Search</button>
                     </form>
                     <li><a href="{% url 'home' %}" class="nav-name">Home</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'new' %}" class="nav-name">Hosting</a></li>
-                    <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" class="nav-name">Hosting</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    {{user.username}}
+                        <li><a href="{% url 'logout' %}" class="nav-name">Logout</a>
+                    {% else %}
+                        <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                    {% endif %}
                     <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-img"
                                 alt=""></a></li>
                     <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-img"
                                 alt=""></a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-img"
                                 alt=""></a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}"><img src="{% static 'img/profile.png' %}" class="nav-img"
+                        alt=""></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -117,5 +131,4 @@
         </div>
     </footer>
 </body>
-<script src="/static/js/wishlist.js" type="text/javascript"></script>
 </html>
