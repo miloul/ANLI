@@ -82,8 +82,9 @@
 }
 
 .d-inline-flex{
-    display: inline-block;
-    margin-left: 50px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .room-box{
@@ -94,8 +95,12 @@
 }
 
 .img-room{
-    width: 400px;
-    height: 250px;
+    width: 350px;
+    height: 230px;
+}
+
+.room-detail-a{
+    text-decoration: none;
 }
 
 .room-name{

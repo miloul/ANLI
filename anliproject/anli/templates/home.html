@@ -12,9 +12,10 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" />
     <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
 </head>
+
 <body>
     <div class="main">
         <div class="nav inner">
@@ -41,10 +42,10 @@
                     <li><a href="{% url 'login' %}" class="nav-name">Hosting</a></li>
                     {% endif %}
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'logout' %}" class="nav-name">Logout</a>
-                    {% else %}
-                        <li><a href="{% url 'login' %}" class="nav-name">Login</a>
-                    {% endif %}
+                    <li><a href="{% url 'logout' %}" class="nav-name">Logout</a>
+                        {% else %}
+                    <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                        {% endif %}
                     <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-img"
                                 alt=""></a></li>
                     <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-img"
@@ -54,7 +55,7 @@
                                 alt=""></a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}"><img src="{% static 'img/profile.png' %}" class="nav-img"
-                        alt=""></a></li>
+                                alt=""></a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -77,42 +78,49 @@
 
         <div class="room">
             <div class="d-inline-flex">
+                <!-- <div class="center-plz"></div> -->
                 {% for room in rooms %}
-                    <div class="room-box">
-                        <a href="{% url 'detail' room.id %}">
-                            <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
-                        </a>
-                        {% if room.heart == 0 %}
-                        <form action="{% url 'heart' room.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
-                        </form>
-                        {% else %}
-                        <form action="{% url 'heart' room.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
-                        </form>
-                        {% endif %}
-                        <a href="{% url 'detail' room.id %}">
+                <div class="room-box">
+                    <a href="{% url 'detail' room.id %}">
+                        <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
+                    </a>
+                    {% if room.heart == 0 %}
+                    <form action="{% url 'heart' room.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" onclick="changeHeart();"
+                            style="float:right;background-color:white;padding:0;border:none;background:none;"><img
+                                id="img1" style="width:30px; height:30px;"
+                                src="{% static 'img/bin-heart.png' %}"></button>
+                    </form>
+                    {% else %}
+                    <form action="{% url 'heart' room.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" onclick="changeHeart();"
+                            style="float:right;background-color:white;padding:0;border:none;background:none;"><img
+                                id="img1" style="width:30px; height:30px;"
+                                src="{% static 'img/full-heart.png' %}"></button>
+                    </form>
+                    {% endif %}
+                    <a class="room-detail-a" href="{% url 'detail' room.id %}">
                         <h4 class="room-name">{{ room.title }}</h4>
                         <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
                         <h4 class="room-tax">{{ room.price }}</h4>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 {% endfor %}
             </div>
         </div>
         <script>
             function changeHeart() {
                 img = document.getElementById("img1");
-                let name=img.src.split('/')
+                let name = img.src.split('/')
                 console.log(name[5]);
                 console.log(name);
-                if (name[5] =="full-heart.png"){
+                if (name[5] == "full-heart.png") {
                     img.src = "{% static 'img/bin-heart.png' %}"
                 }
                 else {
-                   img.src = "{% static 'img/full-heart.png' %}";
+                    img.src = "{% static 'img/full-heart.png' %}";
                 }
             }
         </script>
@@ -130,4 +138,5 @@
         </div>
     </footer>
 </body>
+
 </html>
