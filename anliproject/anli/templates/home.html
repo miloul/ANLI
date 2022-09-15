@@ -41,7 +41,6 @@
                     <li><a href="{% url 'login' %}" class="nav-name">Hosting</a></li>
                     {% endif %}
                     {% if user.is_authenticated %}
-                    {{user.username}}
                         <li><a href="{% url 'logout' %}" class="nav-name">Logout</a>
                     {% else %}
                         <li><a href="{% url 'login' %}" class="nav-name">Login</a>

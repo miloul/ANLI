@@ -13,4 +13,4 @@ def searchResult(request):
             Q(select_home__icontains=query_2)
         )
     
-    return render(request, 'search.html', {'query_1': query_1, 'query_2': query_2, 'results': results})
+    return render(request, 'searchResult.html', {'query_1': query_1, 'query_2': query_2, 'results': results})
