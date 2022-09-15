@@ -70,9 +70,6 @@
                 <div class="login-font">로그인</div>
                 <hr class="line">
             </div>
-            {% if error %}
-            {{ error }}
-            {% endif %}
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="login-container">
@@ -86,6 +83,10 @@
                         <div class="login-input-font">비밀번호</div>
                         <div class="login-input-box"><input type="password" placeholder="비밀번호" name="password" required>
                         </div>
+                    </div>
+                    <div class="error-text-style">* {% if error %}
+                        {{ error }}
+                        {% endif %}
                     </div>
                     <button type="submit" class="default-btn">로그인</button>
                 </div>

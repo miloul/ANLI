@@ -8,6 +8,8 @@
 } */
 
 .all-flex{
+    margin-left: 50px;
+    width: 90%;
     display: flex;
     flex-direction: column;
 }
@@ -38,11 +40,10 @@
     border-right: 2px solid var(--linecolor);
     padding-right: 60px;
     margin-left: 70px;
+    width: 50%;
 }
 
 .room-pm-img{
-    width: 700px;
-    height: 500px;
 }
 
 /* 채광좋고 넓은 원룸 */
@@ -73,7 +74,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 50px;
-    width: 700px;
+    width: 50%;
 }
 
 /* 확인 및 결제 */
@@ -90,7 +91,6 @@
 .bottom-line{
     display: flex;
     flex-direction: column;
-    width: 600px;
     border-bottom: 2px solid var(--linecolor);
     padding-top: 10px;
     padding-bottom: 10px;
@@ -173,7 +173,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 600px;
+    /* width: 600px; */
     border-bottom: 2px solid var(--linecolor);
     padding-top: 10px;
     padding-bottom: 10px;
@@ -219,7 +219,7 @@
 .border-all{
     display: flex;
     flex-direction: column;
-    width: 600px;
+    /* width: 600px; */
     border: 2px solid var(--linecolor);
     padding-left: 30px;
     padding-bottom: 20px;
@@ -254,8 +254,8 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: space-between; */
-    width: 1400px;
-    margin-top: 500px;
+    /* width:100%; */
+    /* margin-top: 500px; */
     margin-bottom: 50px;
     margin-left: 100px;
     /* border: 2px solid var(--linecolor); */
