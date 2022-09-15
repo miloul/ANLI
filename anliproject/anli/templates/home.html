@@ -78,7 +78,7 @@
         <div class="room">
             <div class="d-inline-flex">
                 {% for room in rooms %}
-                    <div class="room-box">
+                    <div class="room-box" >
                         <a href="{% url 'detail' room.id %}">
                             <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
                         </a>
@@ -129,5 +129,6 @@
             <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
         </div>
     </footer>
+
 </body>
 </html>
