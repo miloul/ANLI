@@ -30,9 +30,9 @@
         <!-- Navbar links -->
         <div class="navlink">
             <ul class="gnb">
-                <form class="d-flex" action="." method="get">
+                <form class="d-flex" action="{% url 'searchResult' %}" method="get">
                     <input class="search-inputB" type="search" placeholder="지역" name="location">
-                    <input class="search-inputB" type="search" placeholder="유형" name="kind">
+                    <input class="search-inputB" type="search" placeholder="유형" name="select_home">
                     <button class="search-btnB" type="submit">Search</button>
                 </form>
                 <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
@@ -68,7 +68,7 @@
             <div class="room-box">
                 {% if room.heart == 1 %}
                 <a href="{% url 'detail' room.id %}">
-                    <img src="{{ room.image.url }}" class="img-room" alt="사진"><br></a>
+                    <img src="{{ room.image.url }}" class="img-room" alt="사진" style="border-radius:10px;"><br></a>
                 </a>
                 <form action="{% url 'wishheart' room.id %}" method="post">
                     {% csrf_token %}
