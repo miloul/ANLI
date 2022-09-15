@@ -36,7 +36,12 @@
                     </form>
                     <li><a href="{% url 'home' %}" class="nav-name">Home</a></li>
                     <li><a href="{% url 'new' %}" class="nav-name">Hosting</a></li>
-                    <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                    {% if user.is_authenticated %}
+                    {{user.username}}
+                        <li><a href="{% url 'logout' %}" class="nav-name">Logout</a>
+                    {% else %}
+                        <li><a href="{% url 'login' %}" class="nav-name">Login</a>
+                    {% endif %}
                     <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-img"
                                 alt=""></a></li>
                     <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-img"
@@ -117,5 +122,4 @@
         </div>
     </footer>
 </body>
-<script src="/static/js/wishlist.js" type="text/javascript"></script>
 </html>

@@ -27,4 +27,5 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
+    print("logout complete")
     return redirect('/')
