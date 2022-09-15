@@ -1,4 +1,5 @@
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,20 +11,21 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
 </head>
+
 <body>
     <div id="main">
         <div class="navB inner">
-        <!-- Logo -->
+            <!-- Logo -->
             <div class="logo">
-            <a href="{% url 'home' %}" class="brand-nameB">ANLI</a>
-            <a href="{% url 'home' %}">
-                <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
-            </a>
+                <a href="{% url 'home' %}" class="brand-nameB">ANLI</a>
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
+                </a>
             </div>
-    
+
             <!-- Navbar links -->
             <div class="navlink">
                 <ul class="gnb">
@@ -32,77 +34,87 @@
                         <input class="search-inputB" type="search" placeholder="유형" name="kind">
                         <button class="search-btnB" type="submit">Search</button>
                     </form>
-                <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
-                <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
-                <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
-                <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
-                <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
-                <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
+                    <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                    <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
+                    <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                    <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB"
+                                alt=""></a></li>
+                    <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB"
+                                alt=""></a></li>
+                    <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB"
+                                alt=""></a></li>
                 </ul>
             </div>
-    </div>
-
-    <!-- search -->
-
-    <div style="padding: 5rem 6rem;">
-        <h3 style="margin:0;">검색 결과</h3>
-        <div style="display:flex; margin-top:0.3rem;">
-            <p style="margin:0; font-weight:bold; color:gray;">[지역 : {{ query_1 }} / 방 유형 : {{ query_2 }}]&nbsp</p><p style="margin:0; color:gray;"> 로 검색 하였습니다.</p>
         </div>
-    </div>
 
-    <div class="room" style="padding:1.5rem; ">
-        <div class="d-inline-flex">
-            {% for result in results %}
+        <!-- search -->
+        <div class="search-font">
+            <h3 class="search-font-main">검색 결과</h3>
+            <div style="display:flex; margin-top:0.3rem;">
+                <p style="margin:0; font-weight:bold; color:gray;">[지역 : {{ query_1 }} / 방 유형 : {{ query_2 }}]&nbsp</p>
+                <p style="margin:0; color:gray;"> 로 검색 하였습니다.</p>
+            </div>
+        </div>
+
+        <div class="room">
+            <div class="d-inline-flex">
+                {% for result in results %}
                 <div class="room-box">
                     <a href="{% url 'detail' result.id %}">
-                        <img src="{{ result.image.url }}" class="img-room" alt="사진" ><br></a>
+                        <img src="{{ result.image.url }}" class="img-room" alt="사진"><br></a>
                     </a>
                     {% if result.heart == 0 %}
                     <form action="{% url 'heart' result.id %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/bin-heart.png' %}"></button>
+                        <button type="submit" onclick="changeHeart();"
+                            style="float:right;background-color:white;padding:0;border:none;background:none;"><img
+                                id="img1" style="width:30px; height:30px;"
+                                src="{% static 'img/bin-heart.png' %}"></button>
                     </form>
                     {% else %}
                     <form action="{% url 'heart' result.id %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" onclick="changeHeart();" style="float:right;background-color:white;padding:0;border:none;background:none;"><img id="img1" style="width:30px; height:30px;" src="{% static 'img/full-heart.png' %}"></button>
+                        <button type="submit" onclick="changeHeart();"
+                            style="float:right;background-color:white;padding:0;border:none;background:none;"><img
+                                id="img1" style="width:30px; height:30px;"
+                                src="{% static 'img/full-heart.png' %}"></button>
                     </form>
                     {% endif %}
-                    <a href="{% url 'detail' result.id %}">
-                    <h4 class="room-name">{{ result.title }}</h4>
-                    <h4 class="room-term">{{ result.startDay }} ~ {{ result.lastDay }}</h4>
-                    <h4 class="room-tax">{{ result.price }}</h4>
+                    <a class="room-detail-a" href="{% url 'detail' result.id %}">
+                        <h4 class="room-name">{{ result.title }}</h4>
+                        <h4 class="room-term">{{ result.startDay }} ~ {{ result.lastDay }}</h4>
+                        <h4 class="room-tax">{{ result.price }}</h4>
+                    </a>
                 </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-    <script>
-        function changeHeart() {
-            img = document.getElementById("img1");
-            let name=img.src.split('/')
-            console.log(name[5]);
-            console.log(name);
-            if (name[5] =="full-heart.png"){
-                img.src = "{% static 'img/bin-heart.png' %}"
-            }
-            else {
-               img.src = "{% static 'img/full-heart.png' %}";
-            }
-        }
-    </script>
 
-    <!-- footer -->
-    <footer>
-        <div class="footer-container">
-            <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
-            <p>
-            <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114 &ensp;<span class="bolder">이메일
-                    문의</span> : anli@likelion.org</div>
-            <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
-            </p>
-            <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
+                {% endfor %}
+            </div>
         </div>
-    </footer>
+        <script>
+            function changeHeart() {
+                img = document.getElementById("img1");
+                let name = img.src.split('/')
+                console.log(name[5]);
+                console.log(name);
+                if (name[5] == "full-heart.png") {
+                    img.src = "{% static 'img/bin-heart.png' %}"
+                }
+                else {
+                    img.src = "{% static 'img/full-heart.png' %}";
+                }
+            }
+        </script>
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-container">
+                <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
+                <p>
+                <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114 &ensp;<span class="bolder">이메일
+                        문의</span> : anli@likelion.org</div>
+                <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
+                </p>
+                <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
+            </div>
+        </footer>
 </body>
