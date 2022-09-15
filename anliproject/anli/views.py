@@ -78,6 +78,3 @@ def wishlist(request):
 
 def message(request):
     return render(request, 'message.html')
-
-def search(request):
-    return render(request, 'search.html')

@@ -47,7 +47,7 @@
         <div class="d-inline-flex">
             {% for result in results %}
                 <div class="room-box">
-                    <a href="{% url 'detail' room.id %}">
+                    <a href="{% url 'detail' result.id %}">
                         <img src="{{ result.image.url }}" class="img-room" alt="사진"><br></a>
                     </a>
                     {% if result.heart == 0 %}
