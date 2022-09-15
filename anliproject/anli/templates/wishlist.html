@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/wishlist1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/wishlist2.css' %}" />
 </head>
 
 <body>
@@ -65,8 +65,9 @@
     <div class="room">
         <div class="d-inline-flex">
             {% for room in rooms %}
+            {% if room.heart == 1 %}
             <div class="room-box">
-                {% if room.heart == 1 %}
+                
                 <a href="{% url 'detail' room.id %}">
                     <img src="{{ room.image.url }}" class="img-room" alt="사진" style="border-radius:10px;"><br></a>
                 </a>
@@ -82,9 +83,9 @@
                     <h4 class="room-term">{{ room.startDay }} ~ {{ room.lastDay }}</h4>
                     <h4 class="room-tax">{{ room.price }}</h4>
                 </a>
-                {% endif %}
+                
             </div>
-
+            {% endif %}    
             {% endfor %}
         </div>
     </div>
