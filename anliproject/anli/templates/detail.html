@@ -1,5 +1,6 @@
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,35 +12,39 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/default-style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/default-style.css' %}" />
 </head>
+
 <body>
-        <div class="navB inner">
-          <!-- Logo -->
-            <div class="logo">
-              <a href="{% url 'home' %}" class="brand-nameB">A N L I</a>
-              <a href="{% url 'home' %}">
+    <div class="navB inner">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="{% url 'home' %}" class="brand-nameB">ANLI</a>
+            <a href="{% url 'home' %}">
                 <img src="{% static 'img/logo.png' %}" class="logo-img" alt="">
             </a>
-            </div>
-    
-            <!-- Navbar links -->
-            <div class="navlink">
-                <ul class="gnb">
-                    <form class="d-flex" action="{% url 'searchResult' %}" method="get">
-                        <input class="search-inputB" type="search" placeholder="지역" name="location">
-                        <input class="search-inputB" type="search" placeholder="유형" name="kind">
-                        <button class="search-btnB" type="submit">Search</button>
-                    </form>
-                  <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
-                  <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
-                  <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
-                  <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB" alt=""></a></li>
-                  <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a></li>
-                  <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a></li>
-                </ul>
-            </div>
+        </div>
+
+        <!-- Navbar links -->
+        <div class="navlink">
+            <ul class="gnb">
+                <form class="d-flex" action="{% url 'searchResult' %}" method="get">
+                    <input class="search-inputB" type="search" placeholder="지역" name="location">
+                    <input class="search-inputB" type="search" placeholder="유형" name="kind">
+                    <button class="search-btnB" type="submit">Search</button>
+                </form>
+                <li><a href="{% url 'home' %}" class="nav-nameB">Home</a></li>
+                <li><a href="{% url 'new' %}" class="nav-nameB">Hosting</a></li>
+                <li><a href="{% url 'login' %}" class="nav-nameB">Login</a>
+                <li><a href="{% url 'wishlist' %}"><img src="{% static 'img/wishlist.png' %}" class="nav-imgB"
+                            alt=""></a></li>
+                <li><a href="{% url 'message' %}"><img src="{% static 'img/message.png' %}" class="nav-imgB" alt=""></a>
+                </li>
+                <li><a href="{% url 'mypage' %}"><img src="{% static 'img/profile.png' %}" class="nav-imgB" alt=""></a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="body-padding">
         <div class="title">
@@ -54,7 +59,7 @@
         <div id="inline" class="box-pay">
             <div class="p-container">
                 <h3>1달 당<br>{{ room.price }}
-                <div style="font-size: 15px;" class="text-style">공과금 - 별도(임대료에 미포함)</div>
+                    <div style="font-size: 15px;" class="text-style">공과금 - 별도(임대료에 미포함)</div>
             </div>
             <div class="p-container">
                 <h3>임대 가능 기간</h3>
@@ -66,7 +71,7 @@
         <!-- room-info and message-button -->
         <div class="media-room-option" id="inline">
             <div class="room-flex-row">
-                <img class="info-image" src="{% static 'img/home.png' %}"> 
+                <img class="info-image" src="{% static 'img/home.png' %}">
                 <h4 class="info-msg">{{ room.select_home }}</h4>
             </div>
             <div class="room-flex-row">
@@ -82,21 +87,24 @@
         <hr class="pink-line">
         <!-- map -->
         <div>
-            <h3>지도</h3>
+            <h3>숙소 위치</h3>
+            <img class="room-map-img" src="{% static 'img/room-map.png' %}">
+            <h4 class="room-map-text"> * 정확한 주소는 계약 진행 시 공개됩니다</h4>
+
         </div>
         <hr class="pink-line">
         <!-- room-info -->
         <div class="room-info">
-            <h3>공간정보</h3>
-            <h4><span class="text-style">실평수</span> &nbsp;&nbsp; {{ room.floor_space }}</h4>
+            <h3>공간 정보</h3>
+            <h4 class="room-info-text"><span class="text-style">실평수</span> &nbsp;&nbsp; {{ room.floor_space }}</h4>
             <hr class="gray-line">
-            <h4><span class="text-style">욕실 수</span> &nbsp;&nbsp; {{ room.bathroom }}</h4>
+            <h4 class="room-info-text"><span class="text-style">욕실 수</span> &nbsp;&nbsp; {{ room.bathroom }}</h4>
             <hr class="gray-line">
-            <h4><span class="text-style">방 수/타입</span> &nbsp;&nbsp; {{ room.room }}</h4>
+            <h4 class="room-info-text"><span class="text-style">방 수/타입</span> &nbsp;&nbsp; {{ room.room }}</h4>
             <hr class="gray-line">
-            <h4><span class="text-style">침대 수/타입</span> &nbsp;&nbsp; {{ room.bedroom }}</h4>
+            <h4 class="room-info-text"><span class="text-style">침대 수/타입</span> &nbsp;&nbsp; {{ room.bedroom }}</h4>
             <hr class="gray-line">
-            <h4><span class="text-style">기본 구조 설명</span> &nbsp;&nbsp; {{ room.basic_info }}</h4>
+            <h4 class="room-info-text"><span class="text-style">기본 구조 설명</span> &nbsp;&nbsp; {{ room.basic_info }}</h4>
         </div>
         <hr class="pink-line">
         <!-- option-info -->
@@ -118,11 +126,13 @@
         <div class="footer-container">
             <div>이용약관 | <span class="bolder">개인정보처리방침</span></div>
             <p>
-                <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114  &ensp;<span class="bolder">이메일 문의</span> : anli@likelion.org</div>
-                <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
+            <div class="fontsize13"><span class="bolder">전화문의</span> : 053-950-5114 &ensp;<span class="bolder">이메일
+                    문의</span> : anli@likelion.org</div>
+            <div class="fontsize13"><span class="bolder">소재지</span> : 우)41566 대구광역시 북구 대학로 80 (산격동,경북대학교)</div>
             </p>
             <div class="copyright">Copyright(c)2002 by 안리. All Page content is property of ANLI</div>
         </div>
     </footer>
 </body>
+
 </html>
