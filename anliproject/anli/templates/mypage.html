@@ -48,8 +48,8 @@
         <div class="profile">
             <img src="{% static 'img/lion_profile.png' %}" class="lion-img" alt="">
             <div class="profile-font">
-                <h4 class="profile-name">아기사자</h4>
-                <h4 class="profile-date">가입</h4>
+                <h4 class="profile-name">{{user.username}} 님</h4>
+                <h4 class="profile-date">가입일 : {{user.date_joined}}</h4>
             </div>
         </div>
 
