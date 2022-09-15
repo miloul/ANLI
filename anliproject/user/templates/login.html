@@ -84,7 +84,7 @@
                         <div class="login-input-box"><input type="password" placeholder="비밀번호" name="password" required>
                         </div>
                     </div>
-                    <div class="error-text-style">* {% if error %}
+                    <div class="error-text-style">{% if error %}
                         {{ error }}
                         {% endif %}
                     </div>
